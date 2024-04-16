@@ -23,8 +23,6 @@ Game::~Game()
 void Game::start()
 {
     //TODO
-    cout << "game start function" << endl;
-    cout << "-------------------" << endl;
     Game::loadBoard();
     Game::initializePlayer();
     Game::play();
