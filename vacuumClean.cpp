@@ -41,11 +41,14 @@ int main()
 
         if (userInput == "1") {
             game->start(); //starts game (game.cpp)
+            
         } else if (userInput == "2") {
             showStudentInformation("Ridge Tagala", "s3934367", "s3934367@student.rmit.edu.au");
         } else if (userInput == "3") {
             Quit();
             return EXIT_SUCCESS;
+        } else {
+            cout << "error! invalid input" << endl;
         }
     }
 }
