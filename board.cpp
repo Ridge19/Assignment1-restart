@@ -174,13 +174,13 @@ PlayerMove Board::movePlayerForward(Player* player)
 void Board::display(Player* player)
 {
     // TODO
-    int boardChoice = 0;
+    int boardNum = 1;
 
     if (player == nullptr) {
         return;
     }
 
-    if (boardChoice == 1) {
+    if (boardNum == 1) {
         //board 1
         std::cout << "|" << " " << "|";
         for (int col = 0; col < COLS; col++) {
@@ -203,8 +203,7 @@ void Board::display(Player* player)
             }
             std::cout << std::endl;
         }
-    // cout << PLAYER << " is at: " << player->position.x << ", " << player->position.y << endl;
-    } else if (boardChoice == 2) {
+    } else if (boardNum == 2) {
         //board 2
         std::cout << "|" << " " << "|";
         for (int col = 0; col < COLS; col++) {

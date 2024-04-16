@@ -24,7 +24,7 @@ void Game::start()
 {
     //TODO
     Game::loadBoard();
-    Game::initializePlayer();
+    // Game::initializePlayer();
     Game::play();
 }
 
@@ -47,7 +47,6 @@ bool Game::loadBoard()
         }
         std::cout << std::endl;
     }
-    
     return false; // feel free to revise this line, depending on your implementation.
 }
 
@@ -61,4 +60,5 @@ bool Game::initializePlayer()
 void Game::play()
 {
     //TODO
+
 }

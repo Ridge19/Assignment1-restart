@@ -87,6 +87,7 @@ void gameMenu() { //gameInput (REQ 1)
     while (true) {
         std::string gameInput;
         Board* board = new Board();
+        // Game* game = new Game();
         cout << endl;
         gameInput = Helper::readInput();
 
@@ -96,9 +97,28 @@ void gameMenu() { //gameInput (REQ 1)
 
             if (iss >> boardNum) {
                 if (boardNum == 1) {
+                    std::string Input;
                     cout << "loading board 1" << endl;
                     board->load(1);
                     Initalise();
+
+                    std::getline(cin, Input);
+                    std::stringstream ss(Input);
+                    int x, y;
+                    char delimiter = ',';
+
+                    if (std::getline(ss, Input, delimiter)) {
+                        x = std::stoi(Input);
+                        if (std::getline(ss, Input, delimiter)) {
+                            y = std::stoi(Input);
+                            board->placePlayer(Position(x, y));
+                            
+                        } else {
+                            cout << "error! invalid y coordinate" << endl;
+                        }
+                    } else {
+                        cout << "Error! invalid x coordinate" << endl;
+                    }
                 } else if (boardNum == 2) {
                     cout << "loading board 2" << endl;
                     board->load(2);
