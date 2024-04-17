@@ -71,6 +71,7 @@ void mainMenu() { //userInput  (REQ 1)
     cout << endl;
 }
 
+bool initialised = false; 
 void gameMenu() { //gameInput (REQ 1)
     cout << "You can use the following commands to play the game: \n" << endl;
     cout << "load <g>" << endl;
@@ -151,6 +152,9 @@ void gameMenu() { //gameInput (REQ 1)
             cout << "Invalid command input! try again." << endl;
             gameMenu();
         }
+    if (!initialised) {
+        gameMenu();
+    }
 }
 
 void Initalise() { 

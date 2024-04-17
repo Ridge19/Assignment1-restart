@@ -23,9 +23,9 @@ Game::~Game()
 void Game::start()
 {
     //TODO
-    Game::loadBoard();
+    // Game::loadBoard();
     // Game::initializePlayer();
-    Game::play();
+    // Game::play();
 }
 
 bool Game::loadBoard()
@@ -59,6 +59,29 @@ bool Game::initializePlayer()
 
 void Game::play()
 {
-    //TODO
+    // //TODO
+    // Board* board = new Board();
+    // Player* player = new Player();
+    std::string gameInput;
 
+    while (true) {
+        if (gameInput.find(COMMAND_FORWARD_SHORTCUT) == 0) {
+            const int ROWS = 10;
+            const int COLS = 10;
+
+            std::cout << "|" << " " << "|";
+            for (int col = 0; col < COLS; col++) {
+                std::cout << "" << col << "|";
+            }
+            std::cout << std::endl;
+
+            for (int y = 0; y < ROWS; y++) {
+                std::cout << "|" << y << "|";
+                for (int x = 0; x < COLS; x++) {
+                    std::cout << "" << " " << "|";
+                }
+                std::cout << std::endl;
+            }
+        }
+    }
 }

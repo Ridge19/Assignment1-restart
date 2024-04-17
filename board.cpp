@@ -118,6 +118,7 @@ bool Board::placePlayer(Position position)
     if (position.x >= 0 && position.x < COLS && position.y >= 0 && position.y < ROWS) {
         if (Board::BOARD_1[position.y][position.x] == BLOCKED) {
             cout << "cell blocked! cannot place player" << endl;
+            cout << endl;
             return false;
         } else {
             Player* player = new Player();
