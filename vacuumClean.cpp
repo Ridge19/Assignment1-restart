@@ -95,7 +95,11 @@ void gameMenu() { //gameInput (REQ 1)
         cout << endl;
         gameInput = Helper::readInput();
 
-            if (gameInput.find(COMMAND_LOAD) == 0) {
+        if (gameInput.find(COMMAND_QUIT) == 0) {
+            cout << "Quit" << endl;
+            mainMenu();
+            return;
+        } else if (gameInput.find(COMMAND_LOAD) == 0) {
             std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
             int boardNum;
 
@@ -163,8 +167,6 @@ void gameMenu() { //gameInput (REQ 1)
                                     printf(DIRECTION_ARROW_OUTPUT_WEST);
                                     cout << "Player placed with direction: " << Direction::WEST << endl;
                                 }
-                                
-
                             } else {
                                 cout << "error: invalid y coordinate" << endl;
                             }
@@ -184,6 +186,7 @@ void gameMenu() { //gameInput (REQ 1)
                     // }
             } else {
                 cout << "error! invalid board number - doesnt exist" << endl;
+
             }
         } else {
             cout << "Invalid command input! try again." << endl;
