@@ -174,16 +174,6 @@ void gameMenu() { //gameInput (REQ 1)
                         cout << "error: invalid x coordinate" << endl;
                         return;
                     }
-
-                    //direction of player 
-                    // if (std::getline(ss, token, ',')) {
-                    //     if (token == "NORTH" || token == "north") {
-                    //         cout << "player direction is north" << endl;
-                    //         player->displayDirection();
-                    //     }
-                    // } else {
-                    //     cout << "error! invalid direction" << endl;
-                    // }
             } else {
                 cout << "error! invalid board number - doesnt exist" << endl;
 
@@ -209,34 +199,3 @@ void Initalise() {
 void Quit() {
     cout << "Good bye!\n\n";
 }
-
-
-
-
-
-                //     std::getline(cin, Input);
-                //     std::getline(cin, Input);
-                //     std::stringstream ss(Input);
-                //     int x, y;
-                //     char delimiter = ',';
-                    
-
-                //     if (std::getline(ss, Input, delimiter)) { //checks x coordinate
-                //         x = std::stoi(Input);
-                //         if (std::getline(ss, Input, delimiter)) { // checks y
-                //             y = std::stoi(Input);
-                //             board->placePlayer(Position(x, y));
-                //         } else {
-                //             cout << "error! invalid y coordinate" << endl;
-                //         }
-                //     } else {
-                //         cout << "error! invalid x coordinate!" << endl;
-                //     }
-                //     if (gameInput.find(DIRECTION_NORTH) == 0) {
-                //         player->displayDirection();
-                //         player->turnDirection(TURN_LEFT);
-                //         cout << "Player moved facing north" << endl;
-                //     }
-                // } else {
-                //     cout << "error! cannot load board" << endl;
-                // }
