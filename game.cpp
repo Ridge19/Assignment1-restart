@@ -53,16 +53,19 @@ bool Game::loadBoard()
 bool Game::initializePlayer()
 {
     //TODO
-    player = new Player();
+    // Player* vacuumClean = new Player();
     return true; // feel free to revise this line.
+    // Game::play();
 }
 
 void Game::play()
 {
-    // //TODO
+    //TODO
+    // Player* vacuumClean = new Player();
     // Board* board = new Board();
-    // Player* player = new Player();
     std::string gameInput;
+
+    
 
     while (true) {
         if (gameInput.find(COMMAND_FORWARD_SHORTCUT) == 0) {

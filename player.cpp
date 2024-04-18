@@ -1,3 +1,4 @@
+#include <iostream>
 #include "player.h"
 
 Position::Position()
@@ -25,11 +26,35 @@ Player::Player()
 void Player::initialisePlayer(Position* position, Direction direction)
 {
     //TODO
+    // Position position;
+    // Direction direction; 
+
 }
 
 void Player::turnDirection(TurnDirection turnDirection)
 {
     //TODO
+    if (turnDirection == 0) { //turning left 
+        if (direction == NORTH) {
+            direction = Direction::WEST;
+        } else if (direction == Direction::WEST) {
+            direction = Direction::SOUTH; 
+        } else if (direction == Direction::SOUTH) {
+            direction = Direction::EAST;
+        } else if (direction == Direction::EAST) {
+            direction = Direction::NORTH;
+        }
+    } else if (turnDirection == 1) { //turning right 
+        if (direction == NORTH) {
+            direction = Direction::EAST;
+        } else if (direction == Direction::EAST) {
+            direction = Direction::SOUTH; 
+        } else if (direction == Direction::SOUTH) {
+            direction = Direction::WEST;
+        } else if (direction == Direction::WEST) {
+            direction = Direction::NORTH;
+        }
+    }
 }
 
 Position Player::getNextForwardPosition()

@@ -124,7 +124,7 @@ bool Board::placePlayer(Position position)
             Player* player = new Player();
             player->position.x = position.x;
             player->position.y = position.y;
-            cout << "Player placed in coordinates " << position.x << ", " << position.y << endl;
+            cout << "Player placed in coordinates " << position.x << ", " << position.y  << endl;
             Board::display(player);
             return true;
         }
@@ -215,8 +215,8 @@ void Board::display(Player* player)
         for (int y = 0; y < ROWS; y++) {
             std::cout << "|" << y << "|";
             for (int x = 0; x < COLS; x++) {
-                if (player->position.x == x && player->position.y == y) {
-                    cout << "@|";
+                if (player->position.x == x && player->position.y == y && player->direction) {
+                    player->displayDirection();
                 }
                 if (Board::BOARD_2[y][x] == 1) {
                     std::cout << "*|";
