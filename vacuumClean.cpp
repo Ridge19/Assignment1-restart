@@ -43,14 +43,14 @@ int main()
         mainMenu();
 
     while (true) {
-        Game* game = new Game();
+        // Game* game = new Game();
         std::string userInput;
         std::string gameInput;
 
         userInput = Helper::readInput();
 
         if (userInput == "1") {
-            game->start(); //starts game (game.cpp)
+            // game->start(); //starts game (game.cpp)
             gameMenu();
         } else if (userInput == "2") {
             showStudentInformation("Ridge Tagala", "s3934367", "s3934367@student.rmit.edu.au");
@@ -91,12 +91,15 @@ void gameMenu() { //gameInput (REQ 1)
         std::string gameInput;
         Board* board = new Board();
         Player* player = new Player();
-        // Game* game = new Game();
+        Game* game = new Game();
         cout << endl;
         gameInput = Helper::readInput();
 
         if (gameInput.find(COMMAND_QUIT) == 0) {
             cout << "Quit" << endl;
+            // deconstructors
+            // board->~Board();
+            // game->~Game();
             mainMenu();
             return;
         } else if (gameInput.find(COMMAND_LOAD) == 0) {
@@ -121,6 +124,11 @@ void gameMenu() { //gameInput (REQ 1)
                             y = std::stoi(Input);
                             board->placePlayer(Position(x, y));
                             
+                            //----------- player movement commands 
+                            std::string UserMovement;
+                            while (true) {
+                                game->start();
+                            }
                         } else {
                             cout << "error! invalid y coordinate" << endl;
                         }

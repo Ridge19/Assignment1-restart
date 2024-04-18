@@ -19,7 +19,8 @@ Position::Position(int x, int y)
 Player::Player()
 {
     //TODO
-    this->position = position;
+    this->position.x = position.x;
+    this->position.y = position.y;
     this->direction = direction;
 }
 

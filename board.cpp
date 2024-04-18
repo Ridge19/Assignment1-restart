@@ -169,7 +169,7 @@ PlayerMove Board::movePlayerForward(Player* player)
         cout << "cell is blocked" << endl;
         return CELL_BLOCKED;
     }
-    // return PLAYER_MOVED; // A flag to indicate one of the 3 possible outcomes
+    return PLAYER_MOVED; // A flag to indicate one of the 3 possible outcomes
 }
 
 void Board::display(Player* player)
