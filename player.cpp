@@ -81,13 +81,14 @@ void Player::updatePosition(Position position)
 void Player::displayDirection()
 {
     //TODO
+    std::cout << "display direction function" << std::endl;
     if (direction == Direction::NORTH) {
-        std::cout << DIRECTION_ARROW_OUTPUT_NORTH;
+        printf(DIRECTION_ARROW_OUTPUT_NORTH);
     } else if (direction == Direction::SOUTH) {
-        std::cout << DIRECTION_ARROW_OUTPUT_SOUTH;
+        printf(DIRECTION_ARROW_OUTPUT_SOUTH);
     } else if (direction == Direction::EAST) {
-        std::cout << DIRECTION_ARROW_OUTPUT_EAST;
+        printf(DIRECTION_ARROW_OUTPUT_EAST);
     } else if (direction == Direction::WEST) {
-        std::cout << DIRECTION_ARROW_OUTPUT_WEST;
+        printf(DIRECTION_ARROW_OUTPUT_WEST);
     }
 }

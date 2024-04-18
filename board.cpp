@@ -69,39 +69,39 @@ void Board::load(int boardId)
 {
     // TODO
     if (boardId == 1) {
-        std::cout << "|" << " " << "|";
+        std::cout << LINE_OUTPUT << EMPTY_OUTPUT << LINE_OUTPUT;
             for (int col = 0; col < COLS; col++) {
-                std::cout << "" << col << "|";
+                std::cout << col << LINE_OUTPUT;
             }
             std::cout << std::endl;
 
         for (int y = 0; y < ROWS; y++) {
-            std::cout << "|" << y << "|";
+            std::cout << LINE_OUTPUT << y << LINE_OUTPUT;
             for (int x = 0; x < COLS; x++) {
                 if (Board::BOARD_1[y][x] == 1) {
-                    std::cout << "*|";
+                    std::cout << BLOCKED_OUTPUT << LINE_OUTPUT;
                 }
                 if (Board::BOARD_1[y][x] == 0) {
-                    std::cout << " |";
+                    std::cout << EMPTY_OUTPUT << LINE_OUTPUT;
                 }
             }
             std::cout << std::endl;
         }
     } else if (boardId == 2) {
-        std::cout << "|" << " " << "|";
+        std::cout << LINE_OUTPUT << EMPTY_OUTPUT << LINE_OUTPUT;
             for (int col = 0; col < COLS; col++) {
-                std::cout << "" << col << "|";
+                std::cout << col << LINE_OUTPUT;
             }
             std::cout << std::endl;
 
         for (int y = 0; y < ROWS; y++) {
-            std::cout << "|" << y << "|";
+            std::cout << LINE_OUTPUT << y << LINE_OUTPUT;
             for (int x = 0; x < COLS; x++) {
                 if (Board::BOARD_2[y][x] == 1) {
-                    std::cout << "*|";
+                    std::cout << BLOCKED_OUTPUT << LINE_OUTPUT;
                 }
                 if (Board::BOARD_2[y][x] == 0) {
-                    std::cout << " |";
+                    std::cout << EMPTY_OUTPUT << LINE_OUTPUT;
                 }
             }
             std::cout << std::endl;
@@ -190,39 +190,39 @@ void Board::display(Player* player)
         std::cout << std::endl;
 
         for (int y = 0; y < ROWS; y++) {
-            std::cout << "|" << y << "|";
+            std::cout << LINE_OUTPUT << y << LINE_OUTPUT;
             for (int x = 0; x < COLS; x++) {
                 if (player->position.x == x && player->position.y == y) {
                     cout << "@|";
                 }
                 if (Board::BOARD_1[y][x] == 1) {
-                    std::cout << "*|";
+                    std::cout << BLOCKED_OUTPUT << LINE_OUTPUT;
                 }
                 if (Board::BOARD_1[y][x] == 0) {
-                    std::cout << " |";
+                    std::cout << EMPTY_OUTPUT << LINE_OUTPUT;
                 }
             }
             std::cout << std::endl;
         }
     } else if (boardNum == 2) {
         //board 2
-        std::cout << "|" << " " << "|";
+        std::cout << LINE_OUTPUT << EMPTY_OUTPUT << LINE_OUTPUT;
         for (int col = 0; col < COLS; col++) {
-            std::cout << "" << col << "|";
+            std::cout << "" << col << LINE_OUTPUT;
         }
         std::cout << std::endl;
 
         for (int y = 0; y < ROWS; y++) {
-            std::cout << "|" << y << "|";
+            std::cout << LINE_OUTPUT << y << LINE_OUTPUT;
             for (int x = 0; x < COLS; x++) {
-                if (player->position.x == x && player->position.y == y && player->direction) {
-                    player->displayDirection();
+                if (player->position.x == x && player->position.y == y) {
+                    std::cout << "@|";
                 }
                 if (Board::BOARD_2[y][x] == 1) {
-                    std::cout << "*|";
+                    std::cout << EMPTY_OUTPUT << BLOCKED_OUTPUT;
                 }
                 if (Board::BOARD_2[y][x] == 0) {
-                    std::cout << " |";
+                    std::cout << EMPTY_OUTPUT << BLOCKED_OUTPUT;
                 }
             }
             std::cout << std::endl;

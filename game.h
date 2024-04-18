@@ -29,6 +29,8 @@ private:
     Board* board;
     Player* player;
 
+    int playerRow;
+    int playerCol;
 
     /**
      * Load the board. 

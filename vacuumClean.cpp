@@ -28,7 +28,7 @@ void showStudentInformation(string name, string id, string email){
 
 void mainMenu();
 
-int gameMenu(); 
+void gameMenu(); 
 
 void Initalise();
 
@@ -75,7 +75,7 @@ void mainMenu() { //userInput  (REQ 1)
 }
 
 bool initialised = false; 
-int gameMenu() { //gameInput (REQ 1)
+void gameMenu() { //gameInput (REQ 1)
     cout << "You can use the following commands to play the game: \n" << endl;
     cout << "load <g>" << endl;
     cout << "\t" << "g: number of the game board to load" << endl;
@@ -88,97 +88,111 @@ int gameMenu() { //gameInput (REQ 1)
     cout << "turn_right (or r)" << endl;
     cout << "quit" << endl; 
 
-    std::string gameInput;
-    Board* board = new Board();
-    Player* player = new Player();
-    // Game* game = new Game();
-    cout << endl;
-    gameInput = Helper::readInput();
+        std::string gameInput;
+        Board* board = new Board();
+        Player* player = new Player();
+        // Game* game = new Game();
+        cout << endl;
+        gameInput = Helper::readInput();
 
-    if (gameInput.find(COMMAND_LOAD) == 0) {
-        std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
-        int boardNum;
+            if (gameInput.find(COMMAND_LOAD) == 0) {
+            std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
+            int boardNum;
 
-        if (iss >> boardNum) {
-            if (boardNum == 1) {
-                std::string Input;
-                cout << "loading board 1" << endl;
-                board->load(1);
-                Initalise();
+            if (iss >> boardNum) {
+                if (boardNum == 1) {
+                    std::string Input;
+                    cout << "loading board 1" << endl;
+                    board->load(1);
+                    Initalise();
 
-                std::getline(cin, Input);
-                std::stringstream ss(Input);
-                int x, y;
-                char delimiter = ',';
+                    std::getline(cin, Input);
+                    std::stringstream ss(Input);
+                    int x, y;
+                    char delimiter = ',';
 
-                if (std::getline(ss, Input, delimiter)) {
-                    x = std::stoi(Input);
                     if (std::getline(ss, Input, delimiter)) {
-                        y = std::stoi(Input);
-                        board->placePlayer(Position(x, y));
-                        
-                    } else {
-                        cout << "error! invalid y coordinate" << endl;
-                    }
-                } else {
-                    cout << "Error! invalid x coordinate" << endl;
-                }
-            } else if (boardNum == 2) {
-                std::string gameInput;
-                cout << "loading board 2" << endl;
-                board->load(2);
-                Initalise();
-                
-                int x;
-                int y;
-
-                std::getline(cin, gameInput);
-
-                std::stringstream ss(gameInput);
-                std::string token;
-                
-
-                //x coordinate
-                if (std::getline(ss, token, ',')) {
-                        x = std::stoi(token);
-                        if (std::getline(ss, token, ',')) { //y coordinate
-                            y = std::stoi(token);
-                            cout << "Placeing player in coordinates with direction" << endl;
-                            player->displayDirection();
+                        x = std::stoi(Input);
+                        if (std::getline(ss, Input, delimiter)) {
+                            y = std::stoi(Input);
                             board->placePlayer(Position(x, y));
-                            if (player->direction == Direction::NORTH) {
-                                player->displayDirection();
-                                cout << "Player placed with direction: " << Direction::NORTH << endl;
-                            } else if (player->direction == Direction::SOUTH) {
-                                player->displayDirection();
-                                cout << "Player placed with direction: " << Direction::SOUTH << endl;
-                            } else if (player->direction == Direction::EAST) {
-                                player->displayDirection();
-                                cout << "Player placed with direction: " << Direction::EAST << endl;
-                            } else if (player->direction == Direction::WEST) {
-                                player->displayDirection();
-                                cout << "Player placed with direction: " << Direction::WEST << endl;
-                            }
                             
-
                         } else {
-                            cout << "error: invalid y coordinate" << endl;
+                            cout << "error! invalid y coordinate" << endl;
                         }
-                } else {
-                    cout << "error: invalid x coordinate" << endl;
-                    return 0;
-                }
+                    } else {
+                        cout << "Error! invalid x coordinate" << endl;
+                    }
+                } else if (boardNum == 2) {
+                    std::string gameInput;
+                    cout << "loading board 2" << endl;
+                    board->load(2);
+                    Initalise();
+                    
+                    int x;
+                    int y;
+
+                    std::getline(cin, gameInput);
+
+                    std::stringstream ss(gameInput);
+                    std::string token;
+                    
+
+                    //x coordinate
+                    if (std::getline(ss, token, ',')) {
+                            x = std::stoi(token);
+                            if (std::getline(ss, token, ',')) { //y coordinate
+                                y = std::stoi(token);
+                                cout << "Placing player in coordinates with direction" << endl;
+                                player->displayDirection();
+                                board->placePlayer(Position(x, y));
+                                if (player->direction == Direction::NORTH) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_NORTH);
+                                    cout << "Player placed with direction: " << Direction::NORTH << endl;
+                                } else if (player->direction == Direction::SOUTH) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_SOUTH);
+                                    cout << "Player placed with direction: " << Direction::SOUTH << endl;
+                                } else if (player->direction == Direction::EAST) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_EAST);
+                                    cout << "Player placed with direction: " << Direction::EAST << endl;
+                                } else if (player->direction == Direction::WEST) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_WEST);
+                                    cout << "Player placed with direction: " << Direction::WEST << endl;
+                                }
+                                
+
+                            } else {
+                                cout << "error: invalid y coordinate" << endl;
+                            }
+                    } else {
+                        cout << "error: invalid x coordinate" << endl;
+                        return;
+                    }
+
+                    //direction of player 
+                    // if (std::getline(ss, token, ',')) {
+                    //     if (token == "NORTH" || token == "north") {
+                    //         cout << "player direction is north" << endl;
+                    //         player->displayDirection();
+                    //     }
+                    // } else {
+                    //     cout << "error! invalid direction" << endl;
+                    // }
+            } else {
+                cout << "error! invalid board number - doesnt exist" << endl;
+            }
         } else {
-            cout << "error! invalid board number - doesnt exist" << endl;
+            cout << "Invalid command input! try again." << endl;
+            gameMenu();
         }
-    } else {
-        cout << "Invalid command input! try again." << endl;
-        gameMenu();
     }
-    } else if (gameInput.find(COMMAND_QUIT) == 0) {
-    mainMenu();
-    }   
-    return 0;
+    if (!initialised) {
+        gameMenu();
+    }      
 }
 
 void Initalise() { 

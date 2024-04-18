@@ -9,6 +9,8 @@ using std::endl;
 Game::Game()
 {
     // TODO
+    playerRow = 0;
+    playerCol = 0;
 
 }
 
