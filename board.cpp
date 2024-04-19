@@ -62,7 +62,7 @@ Board::Board()
 Board::~Board()
 {
     // TODO
-    delete board;
+    // delete board;
 }
 
 void Board::load(int boardId)
@@ -156,20 +156,23 @@ bool Board::placePlayer(Position position)
 PlayerMove Board::movePlayerForward(Player* player)
 {
     // TODO
+    // Check for out-of-bounds before moving
+    if (player->position.y == 0) {
+        std::cout << "Player is already at the top edge of the board!" << std::endl;
+        return OUTSIDE_BOUNDS;
+    }
     if (player->position.y == 0) {
         cout << "player is already at that coordinate!" << endl;
-    } 
-    if (Board::BOARD_1[player->position.y - 1][player->position.x] != BLOCKED) {
-        player->position.y--;
-        return PLAYER_MOVED;
-    } else if (player->position.x > COLS && player->position.y > ROWS) {
-        cout << "Error! outside of board bounds!" << endl;
         return OUTSIDE_BOUNDS;
+    } 
+    if ((player->position.y) + player->position.x) {
+        player->position.y--; // Move player forward (decrement y-coordinate)
+        return PLAYER_MOVED;
     } else {
-        cout << "cell is blocked" << endl;
+        std::cout << "Cell in front of player is blocked." << std::endl;
         return CELL_BLOCKED;
     }
-    return PLAYER_MOVED; // A flag to indicate one of the 3 possible outcomes
+    return CELL_BLOCKED;
 }
 
 void Board::display(Player* player)
@@ -233,3 +236,6 @@ void Board::display(Player* player)
 }
 
 
+// else if (player->position.x > COLS && player->position.y > ROWS) {
+//         cout << "Error! outside of board bounds!" << endl;
+//         return OUTSIDE_BOUNDS;

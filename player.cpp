@@ -4,8 +4,8 @@
 Position::Position()
 {
     //TODO
-    x = 0; 
-    y = 0;
+    // x = 0; 
+    // y = 0;
 }
 
 
@@ -61,7 +61,7 @@ void Player::turnDirection(TurnDirection turnDirection)
 Position Player::getNextForwardPosition()
 {
     //TODO
-    Position newPosition = this->position;
+    Position newPosition = position;
     if (direction == Direction::NORTH) {
         newPosition.y++;
     } else if (direction == Direction::SOUTH) {
@@ -77,6 +77,10 @@ Position Player::getNextForwardPosition()
 void Player::updatePosition(Position position)
 {
     //TODO
+    Position newPosition = this->position;
+    position.x = newPosition.x;
+    position.y = newPosition.y;
+
 }
 
 void Player::displayDirection()

@@ -102,10 +102,11 @@ void gameMenu() { //gameInput (REQ 1)
             // game->~Game();
             mainMenu();
             return;
+
         } else if (gameInput.find(COMMAND_LOAD) == 0) {
             std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
             int boardNum;
-
+            
             if (iss >> boardNum) {
                 if (boardNum == 1) {
                     std::string Input;
@@ -123,12 +124,6 @@ void gameMenu() { //gameInput (REQ 1)
                         if (std::getline(ss, Input, delimiter)) {
                             y = std::stoi(Input);
                             board->placePlayer(Position(x, y));
-                            
-                            //----------- player movement commands 
-                            std::string UserMovement;
-                            while (true) {
-                                game->start();
-                            }
                         } else {
                             cout << "error! invalid y coordinate" << endl;
                         }
@@ -152,13 +147,22 @@ void gameMenu() { //gameInput (REQ 1)
 
                     //x coordinate
                     if (std::getline(ss, token, ',')) {
-                            x = std::stoi(token);
-                            if (std::getline(ss, token, ',')) { //y coordinate
-                                y = std::stoi(token);
-                                cout << "Placing player in coordinates with direction" << endl;
-                                player->displayDirection();
-                                board->placePlayer(Position(x, y));
-                                if (player->direction == Direction::NORTH) {
+            
+                        x = std::stoi(token);
+                        if (std::getline(ss, token, ',')) { //y coordinate
+                            y = std::stoi(token);
+                            cout << "Placing player in coordinates with direction" << endl;
+                            player->displayDirection();
+                            board->placePlayer(Position(x, y));
+                                                            
+                            //----------- player movement commands 
+                            std::string UserMovement;
+                            while (true) {
+                                game->start();
+                            }
+
+
+                            if (player->direction == Direction::NORTH) {
                                     player->displayDirection();
                                     printf(DIRECTION_ARROW_OUTPUT_NORTH);
                                     cout << "Player placed with direction: " << Direction::NORTH << endl;
