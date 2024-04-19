@@ -13,14 +13,13 @@ Game::Game()
     // TODO
     playerRow = 0;
     playerCol = 0;
-
 }
 
 Game::~Game()
 {
     // TODO
-    // delete board;
-    // delete player;
+    delete board;
+    delete player;
 }
 
 void quitGame() {
@@ -145,6 +144,12 @@ void Game::play()
         }
         player.updatePosition(position);
         player.displayDirection();
-    } 
+    } else if (UserMovement.find(COMMAND_QUIT) == 0) {
+        cout << "test quit function" << endl;
+        return;
+    } else {
+        cout << "error! invalid input. try again." << endl;
+        play();
+    }
 }
 

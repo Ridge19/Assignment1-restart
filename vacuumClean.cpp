@@ -109,26 +109,58 @@ void gameMenu() { //gameInput (REQ 1)
             
             if (iss >> boardNum) {
                 if (boardNum == 1) {
-                    std::string Input;
-                    cout << "loading board 1" << endl;
+                    std::string gameInput;
+                    cout << "loading board 2" << endl;
                     board->load(1);
                     Initalise();
+                    
+                    int x;
+                    int y;
 
-                    std::getline(cin, Input);
-                    std::stringstream ss(Input);
-                    int x, y;
-                    char delimiter = ',';
+                    std::getline(cin, gameInput);
 
-                    if (std::getline(ss, Input, delimiter)) {
-                        x = std::stoi(Input);
-                        if (std::getline(ss, Input, delimiter)) {
-                            y = std::stoi(Input);
+                    std::stringstream ss(gameInput);
+                    std::string token;
+                    
+
+                    //x coordinate
+                    if (std::getline(ss, token, ',')) {
+            
+                        x = std::stoi(token);
+                        if (std::getline(ss, token, ',')) { //y coordinate
+                            y = std::stoi(token);
+                            cout << "Placing player in coordinates with direction" << endl;
+                            player->displayDirection();
                             board->placePlayer(Position(x, y));
-                        } else {
-                            cout << "error! invalid y coordinate" << endl;
-                        }
+                                                            
+                            //----------- player movement commands 
+                            std::string UserMovement;
+                            while (true) {
+                                game->start();
+                            }
+                            if (player->direction == Direction::NORTH) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_NORTH);
+                                    cout << "Player placed with direction: " << Direction::NORTH << endl;
+                                } else if (player->direction == Direction::SOUTH) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_SOUTH);
+                                    cout << "Player placed with direction: " << Direction::SOUTH << endl;
+                                } else if (player->direction == Direction::EAST) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_EAST);
+                                    cout << "Player placed with direction: " << Direction::EAST << endl;
+                                } else if (player->direction == Direction::WEST) {
+                                    player->displayDirection();
+                                    printf(DIRECTION_ARROW_OUTPUT_WEST);
+                                    cout << "Player placed with direction: " << Direction::WEST << endl;
+                                }
+                            } else {
+                                cout << "error: invalid y coordinate" << endl;
+                            }
                     } else {
-                        cout << "Error! invalid x coordinate" << endl;
+                        cout << "error: invalid x coordinate" << endl;
+                        return;
                     }
                 } else if (boardNum == 2) {
                     std::string gameInput;
@@ -160,8 +192,6 @@ void gameMenu() { //gameInput (REQ 1)
                             while (true) {
                                 game->start();
                             }
-
-
                             if (player->direction == Direction::NORTH) {
                                     player->displayDirection();
                                     printf(DIRECTION_ARROW_OUTPUT_NORTH);
