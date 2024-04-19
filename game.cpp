@@ -25,6 +25,7 @@ Game::~Game()
 
 void quitGame() {
     cout << "quitting" << endl;
+    return;
 }
 
 
@@ -99,7 +100,7 @@ void Game::play()
     std::getline(std::cin, UserMovement);
     #define ROWS 10
     #define COLS 10
-
+    
     if (UserMovement.find(COMMAND_FORWARD_SHORTCUT) == 0) {
         PlayerMove moveResult = board.movePlayerForward(&player);
 
@@ -144,10 +145,6 @@ void Game::play()
         }
         player.updatePosition(position);
         player.displayDirection();
-    } else if (UserMovement.find(COMMAND_QUIT) == 0) {
-        quitGame();
-        return;
-
-    }
+    } 
 }
 
