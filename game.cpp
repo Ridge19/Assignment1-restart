@@ -31,8 +31,8 @@ void quitGame() {
 void Game::start()
 {
     //TODO
-    loadBoard();
-    initializePlayer();
+    // loadBoard();
+    // initializePlayer();
     play();
 }
 
@@ -40,7 +40,6 @@ bool Game::loadBoard()
 {
     //TODO
     board->display(player);
-
     return true; // feel free to revise this line, depending on your implementation.
 }
 
@@ -48,10 +47,9 @@ bool Game::initializePlayer()
 {
     //TODO
     Player player;
-    player.position.y = 0;
-    player.position.x = 0;
+    player.position.y = player.position.y;
+    player.position.x = player.position.x;
     return true; // feel free to revise this line.
-    
 }
 
 void Game::play()
@@ -61,10 +59,6 @@ void Game::play()
     Player player; 
     Position position;
     std::string UserMovement;
-
-    
-    // const int ROWS = 10;
-    // const int COLS = 10;
 
     cout << "<x>,<y>,<direction>" << endl;
     cout << "\tx: horizontal position of the vacuum cleaner in the room (between 0 and 9)" << endl;
@@ -85,6 +79,8 @@ void Game::play()
         if (moveResult == PLAYER_MOVED) {
             cout << "Player moving.." << endl;
             loadBoard();
+            player.getNextForwardPosition();
+            player.updatePosition(position);
         } else {
             cout << "Invalid input" << endl;
         }

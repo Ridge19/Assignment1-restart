@@ -4,8 +4,8 @@
 Position::Position()
 {
     //TODO
-    this->x = 0;
-    this->y = 0;
+    // x = 0; 
+    // y = 0;
 }
 
 
@@ -19,24 +19,17 @@ Position::Position(int x, int y)
 Player::Player()
 {
     //TODO
-    this->position.x = 0;
-    this->position.y = 0;
-    this->direction = NORTH;
+    this->position.x = position.x;
+    this->position.y = position.y;
+    this->direction = direction;
 }
 
 void Player::initialisePlayer(Position* position, Direction direction)
 {
     //TODO
-    if (position == nullptr) {
-        return;
-    } 
+    // Position position;
+    // Direction direction; 
 
-    // Assign position values
-    this->position.x = position->x;
-    this->position.y = position->y;
-
-    // Store direction
-    this->direction = direction;
 }
 
 void Player::turnDirection(TurnDirection turnDirection)
