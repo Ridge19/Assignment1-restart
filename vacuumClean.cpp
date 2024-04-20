@@ -17,16 +17,9 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-void showStudentInformation(string name, string id, string email){
-    // TODO
-    cout << "------------------------" << endl;
-    cout << "Name: " << name << endl;
-    cout << "Student ID: " << id << endl;
-    cout << "Email: " << email << endl;
-    cout << "------------------------\n" << endl;
-}
-
 void mainMenu();
+
+void showStudentInformation(string name, string id, string email);
 
 void gameMenu(); 
 
@@ -72,6 +65,17 @@ void mainMenu() { //userInput  (REQ 1)
 
     cout << "Please enter your choice: ";
     cout << endl;
+}
+
+void showStudentInformation(string name, string id, string email){
+    // TODO
+    cout << "------------------------" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Student ID: " << id << endl;
+    cout << "Email: " << email << endl;
+    cout << "------------------------\n" << endl;
+
+    mainMenu();
 }
 
 bool initialised = false; 

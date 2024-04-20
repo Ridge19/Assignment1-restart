@@ -31,7 +31,7 @@ void quitGame() {
 void Game::start()
 {
     //TODO
-    // loadBoard();
+    loadBoard();
     initializePlayer();
     play();
 }
@@ -40,25 +40,7 @@ bool Game::loadBoard()
 {
     //TODO
     board->display(player);
-    // const int ROWS = 10;
-    // const int COLS = 10;
 
-    // std::cout << "|" << " " << "|";
-    // for (int col = 0; COLS < COLS; col++) {
-    //     std::cout << "" << COLS << "|";
-    // }
-    // std::cout << std::endl;
-
-    // for (int y = 0; y < ROWS; y++) {
-    //     std::cout << "|" << y << "|";
-    //     playerRow++;
-    //     for (int x = 0; x < COLS; x++) {
-    //         std::cout << "" << " " << "|";
-    //         playerCol++;
-            
-    //     }
-    //     std::cout << std::endl;
-    // }
     return true; // feel free to revise this line, depending on your implementation.
 }
 
@@ -68,16 +50,13 @@ bool Game::initializePlayer()
     Player player;
     player.position.y = 0;
     player.position.x = 0;
-    // Player* vacuumClean = new Player();
     return true; // feel free to revise this line.
-    // Game::play();
+    
 }
 
 void Game::play()
 {
     //TODO
-    // Player* vacuumClean = new Player();
-    // Board* board = new Board();
     Board board;
     Player player; 
     Position position;
@@ -106,8 +85,6 @@ void Game::play()
         if (moveResult == PLAYER_MOVED) {
             cout << "Player moving.." << endl;
             loadBoard();
-            player.getNextForwardPosition();
-            player.updatePosition(position);
         } else {
             cout << "Invalid input" << endl;
         }
