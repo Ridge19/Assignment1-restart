@@ -110,7 +110,7 @@ void gameMenu() { //gameInput (REQ 1)
             if (iss >> boardNum) {
                 if (boardNum == 1) {
                     std::string gameInput;
-                    cout << "loading board 2" << endl;
+                    cout << "loading board 1" << endl;
                     board->load(1);
                     Initalise();
                     
@@ -140,19 +140,19 @@ void gameMenu() { //gameInput (REQ 1)
                             }
                             if (player->direction == Direction::NORTH) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_NORTH);
+                                    cout << (DIRECTION_ARROW_OUTPUT_NORTH) << endl;
                                     cout << "Player placed with direction: " << Direction::NORTH << endl;
                                 } else if (player->direction == Direction::SOUTH) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_SOUTH);
+                                    cout << (DIRECTION_ARROW_OUTPUT_SOUTH) << endl;
                                     cout << "Player placed with direction: " << Direction::SOUTH << endl;
                                 } else if (player->direction == Direction::EAST) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_EAST);
+                                    cout << (DIRECTION_ARROW_OUTPUT_EAST) << endl;
                                     cout << "Player placed with direction: " << Direction::EAST << endl;
                                 } else if (player->direction == Direction::WEST) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_WEST);
+                                    cout << (DIRECTION_ARROW_OUTPUT_WEST) << endl;
                                     cout << "Player placed with direction: " << Direction::WEST << endl;
                                 }
                             } else {
@@ -194,19 +194,19 @@ void gameMenu() { //gameInput (REQ 1)
                             }
                             if (player->direction == Direction::NORTH) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_NORTH);
+                                    cout << (DIRECTION_ARROW_OUTPUT_NORTH) << endl;
                                     cout << "Player placed with direction: " << Direction::NORTH << endl;
                                 } else if (player->direction == Direction::SOUTH) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_SOUTH);
+                                    cout << (DIRECTION_ARROW_OUTPUT_SOUTH) << endl;
                                     cout << "Player placed with direction: " << Direction::SOUTH << endl;
                                 } else if (player->direction == Direction::EAST) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_EAST);
+                                    cout << (DIRECTION_ARROW_OUTPUT_EAST) << endl;
                                     cout << "Player placed with direction: " << Direction::EAST << endl;
                                 } else if (player->direction == Direction::WEST) {
                                     player->displayDirection();
-                                    printf(DIRECTION_ARROW_OUTPUT_WEST);
+                                    cout << (DIRECTION_ARROW_OUTPUT_WEST) << endl;
                                     cout << "Player placed with direction: " << Direction::WEST << endl;
                                 }
                             } else {

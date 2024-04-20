@@ -124,7 +124,7 @@ bool Board::placePlayer(Position position)
             Player* player = new Player();
             player->position.x = position.x;
             player->position.y = position.y;
-            cout << "Player placed in coordinates " << position.x << ", " << position.y  << endl;
+            cout << "Player placed in coordinates " << position.x << ", " << position.y << endl;
             Board::display(player);
             return true;
         }
@@ -142,7 +142,22 @@ bool Board::placePlayer(Position position)
             Player* player = new Player();
             player->position.x = position.x;
             player->position.y = position.y;
-            cout << "Player placed in coordinates " << position.x << ", " << position.y << endl;
+            std::string directionStr;
+
+            if (player->direction == Direction::NORTH) {
+            directionStr = "North";
+            } else if (player->direction == Direction::SOUTH) {
+            directionStr = "South";
+            } else if (player->direction == Direction::EAST) {
+            directionStr = "East";
+            } else if (player->direction == Direction::WEST) {
+            directionStr = "West";
+            } else {
+            // Handle unexpected direction value (optional)
+            }
+
+            cout << "Player placed in coordinates " << position.x << ", " << position.y << ", " << directionStr << endl;
+            // cout << "Player placed in coordinates " << position.x << ", " << position.y << endl;
             Board::display(player);
             return true;
         }

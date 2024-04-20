@@ -88,12 +88,12 @@ void Player::displayDirection()
     //TODO
     std::cout << "display direction function" << std::endl;
     if (direction == Direction::NORTH) {
-        printf(DIRECTION_ARROW_OUTPUT_NORTH);
+        std::cout << (DIRECTION_ARROW_OUTPUT_NORTH) << std::endl;
     } else if (direction == Direction::SOUTH) {
-        printf(DIRECTION_ARROW_OUTPUT_SOUTH);
+        std::cout << (DIRECTION_ARROW_OUTPUT_SOUTH) << std::endl;
     } else if (direction == Direction::EAST) {
-        printf(DIRECTION_ARROW_OUTPUT_EAST);
+        std::cout << (DIRECTION_ARROW_OUTPUT_EAST) << std::endl;
     } else if (direction == Direction::WEST) {
-        printf(DIRECTION_ARROW_OUTPUT_WEST);
+        std::cout << (DIRECTION_ARROW_OUTPUT_WEST) << std::endl;
     }
 }
