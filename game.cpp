@@ -40,25 +40,25 @@ bool Game::loadBoard()
 {
     //TODO
     board->display(player);
-    const int ROWS = 10;
-    const int COLS = 10;
+    // const int ROWS = 10;
+    // const int COLS = 10;
 
-    std::cout << "|" << " " << "|";
-    for (int col = 0; COLS < COLS; col++) {
-        std::cout << "" << COLS << "|";
-    }
-    std::cout << std::endl;
+    // std::cout << "|" << " " << "|";
+    // for (int col = 0; COLS < COLS; col++) {
+    //     std::cout << "" << COLS << "|";
+    // }
+    // std::cout << std::endl;
 
-    for (int y = 0; y < ROWS; y++) {
-        std::cout << "|" << y << "|";
-        playerRow++;
-        for (int x = 0; x < COLS; x++) {
-            std::cout << "" << " " << "|";
-            playerCol++;
+    // for (int y = 0; y < ROWS; y++) {
+    //     std::cout << "|" << y << "|";
+    //     playerRow++;
+    //     for (int x = 0; x < COLS; x++) {
+    //         std::cout << "" << " " << "|";
+    //         playerCol++;
             
-        }
-        std::cout << std::endl;
-    }
+    //     }
+    //     std::cout << std::endl;
+    // }
     return true; // feel free to revise this line, depending on your implementation.
 }
 
