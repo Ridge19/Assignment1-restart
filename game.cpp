@@ -31,8 +31,6 @@ void quitGame() {
 void Game::start()
 {
     //TODO
-    // loadBoard();
-    // initializePlayer();
     play();
 }
 

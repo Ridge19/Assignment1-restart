@@ -27,8 +27,7 @@ Player::Player()
 void Player::initialisePlayer(Position* position, Direction direction)
 {
     //TODO
-    // Position position;
-    // Direction direction; 
+
 
 }
 

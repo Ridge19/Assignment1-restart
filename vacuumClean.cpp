@@ -52,6 +52,7 @@ int main()
             return EXIT_SUCCESS;
         } else {
             cout << "error! invalid input" << endl;
+            mainMenu();
         }
     }
 }
@@ -99,24 +100,21 @@ void gameMenu() { //gameInput (REQ 1)
         cout << endl;
         gameInput = Helper::readInput();
 
-        if (gameInput.find(COMMAND_QUIT) == 0) {
+        if (gameInput.find(COMMAND_QUIT) == 0) { //if user inputs "quit", program terminates to main menu
             cout << "Quit" << endl;
-            // deconstructors
-            // board->~Board();
-            // game->~Game();
             mainMenu();
             return;
 
-        } else if (gameInput.find(COMMAND_LOAD) == 0) {
+        } else if (gameInput.find(COMMAND_LOAD) == 0) { //if user inputs load
             std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
             int boardNum;
             
             if (iss >> boardNum) {
-                if (boardNum == 1) {
+                if (boardNum == 1) { //if user chooses board1
                     std::string gameInput;
                     cout << "loading board 1" << endl;
-                    board->load(1);
-                    Initalise();
+                    board->load(1); //loads board1
+                    Initalise(); //shows menu
                     
                     int x;
                     int y;
@@ -134,15 +132,17 @@ void gameMenu() { //gameInput (REQ 1)
                         if (std::getline(ss, token, ',')) { //y coordinate
                             y = std::stoi(token);
                             cout << "Placing player in coordinates with direction" << endl;
-                            player->displayDirection();
-                            board->placePlayer(Position(x, y));
+                            player->displayDirection(); //gets direction
+                            board->placePlayer(Position(x, y)); //places player in x/y coordinate inputted by user
                                                             
-                            //----------- player movement commands 
+                            //----------- player movement commands (see game.cpp)
                             std::string UserMovement;
                             while (true) {
+
                                 game->start();
                             }
-                            if (player->direction == Direction::NORTH) {
+
+                            if (player->direction == Direction::NORTH) { //player direction (NOT WORKING - COULDNT FIGURE OUT.)
                                     player->displayDirection();
                                     cout << (DIRECTION_ARROW_OUTPUT_NORTH) << endl;
                                     cout << "Player placed with direction: " << Direction::NORTH << endl;
@@ -166,11 +166,11 @@ void gameMenu() { //gameInput (REQ 1)
                         cout << "error: invalid x coordinate" << endl;
                         return;
                     }
-                } else if (boardNum == 2) {
+                } else if (boardNum == 2) { //if user selected board2
                     std::string gameInput;
                     cout << "loading board 2" << endl;
-                    board->load(2);
-                    Initalise();
+                    board->load(2); //loads board2 
+                    Initalise(); //shows menu
                     
                     int x;
                     int y;
@@ -230,6 +230,7 @@ void gameMenu() { //gameInput (REQ 1)
         }
     }
     if (!initialised) {
+        cout << "error! invalid input. try again." << endl;
         gameMenu();
     }      
 }
