@@ -23,7 +23,6 @@ Game::~Game()
 }
 
 void quitGame() {
-    cout << "quitting" << endl;
     return;
 }
 
@@ -71,10 +70,10 @@ void Game::play()
     #define ROWS 10
     #define COLS 10
     
-    if (UserMovement.find(COMMAND_FORWARD_SHORTCUT) == 0) {
+    if (UserMovement.find(COMMAND_FORWARD_SHORTCUT) == 0) { //when user inputs f
         PlayerMove moveResult = board.movePlayerForward(&player);
 
-        if (moveResult == PLAYER_MOVED) {
+        if (moveResult == PLAYER_MOVED) { //if player has moved (return PLAYER_MOVED)
             cout << "Player moving.." << endl;
             loadBoard();
             player.getNextForwardPosition();
@@ -83,7 +82,7 @@ void Game::play()
             cout << "Invalid input" << endl;
         }
     }
-    else if (UserMovement.find(COMMAND_TURN_LEFT_SHORTCUT) == 0) {
+    else if (UserMovement.find(COMMAND_TURN_LEFT_SHORTCUT) == 0) { //if player has turned left 
         cout << "turning left" << endl;
         loadBoard();
         player.getNextForwardPosition();
@@ -99,7 +98,7 @@ void Game::play()
         }
         player.updatePosition(position);
         player.displayDirection();
-    } else if (UserMovement.find(COMMAND_TURN_RIGHT_SHORTCUT) == 0) {
+    } else if (UserMovement.find(COMMAND_TURN_RIGHT_SHORTCUT) == 0) { //if player has turned right 
         cout << "turning right" << endl;
         loadBoard();
         player.getNextForwardPosition();
@@ -115,8 +114,7 @@ void Game::play()
         }
         player.updatePosition(position);
         player.displayDirection();
-    } else if (UserMovement.find(COMMAND_QUIT) == 0) {
-        cout << "test quit function" << endl;
+    } else if (UserMovement.find(COMMAND_QUIT) == 0) { //if user inputs "quit"
         return;
     } else {
         cout << "error! invalid input. try again." << endl;

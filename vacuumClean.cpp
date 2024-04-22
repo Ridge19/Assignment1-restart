@@ -104,13 +104,13 @@ void gameMenu() { //gameInput (REQ 1)
             cout << "Quit" << endl;
             mainMenu();
             return;
-
         } else if (gameInput.find(COMMAND_LOAD) == 0) { //if user inputs load
             std::istringstream iss(gameInput.substr(strlen(COMMAND_LOAD) + 1));
             int boardNum;
             
             if (iss >> boardNum) {
                 if (boardNum == 1) { //if user chooses board1
+                
                     std::string gameInput;
                     cout << "loading board 1" << endl;
                     board->load(1); //loads board1
@@ -123,6 +123,12 @@ void gameMenu() { //gameInput (REQ 1)
 
                     std::stringstream ss(gameInput);
                     std::string token;
+
+                    if (gameInput.find(COMMAND_QUIT) == 0) { //if user inputs "quit", program terminates to main menu
+                        cout << "Quit" << endl;
+                        mainMenu();
+                        return;
+                    }
                     
 
                     //x coordinate
